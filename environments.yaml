@@ -1,0 +1,23 @@
+
+local:
+  azure:
+    storage:
+      emulated: true
+
+development:
+  azure:
+    storage:
+      account: ""
+      secret: ""
+
+beta:
+  azure:
+    storage:
+      account: ""
+      secret: ""
+
+production:
+  azure:
+    storage:
+      account: ""
+      secret: ""

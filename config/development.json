@@ -1,0 +1,19 @@
+{
+  "export": {
+    "tables": [],
+    "ignore-columns": [],
+    "containers": []
+  },
+  "import": {
+    "overwrite-existing-records": true,
+    "drop-and-recreate": true,
+    "tables": [],
+    "containers": [],
+    "ignore-dirs": []
+  },
+  "column-as-json": {
+    "table": {
+      "field": false
+    }
+  }
+}

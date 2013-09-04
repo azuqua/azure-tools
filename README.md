@@ -1,4 +1,4 @@
 azure-tools
 ===========
 
-Tools and scripts to manage windows azure storage
+Tools to work with data in Azure storage services (tables, blobs)
