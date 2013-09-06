@@ -1,4 +1,8 @@
 {
+  "options":{
+    "root":"./",
+    "ignore-dirs": []
+  },
   "export": {
     "tables": [],
     "ignore-columns": [],
@@ -8,8 +12,7 @@
     "overwrite-existing-records": true,
     "drop-and-recreate": true,
     "tables": [],
-    "containers": [],
-    "ignore-dirs": []
+    "containers": []
   },
   "column-as-json": {
     "table": {

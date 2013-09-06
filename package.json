@@ -2,7 +2,7 @@
   "name": "azure-tools",
   "description": "node.js tools to work with Azure Storage",
   "author": "azuqua, inc.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/azuqua/azure-tools.git"
@@ -12,14 +12,16 @@
   },
   "licenses": [
     {
-      "type" : "MIT",
-      "url" : "https://github.com/azuqua/azure-tools/LICENSE"
+      "type": "MIT",
+      "url": "https://github.com/azuqua/azure-tools/LICENSE"
     }
   ],
   "dependencies": {
-    "azure": "0.7.15",
+    "azure": "~0.7.15",
     "underscore": "1.5.1",
-    "async": "0.2.9"
+    "async": "0.2.9",
+    "commander": "~2.0.0",
+    "js-yaml": "~2.1.0"
   },
   "devDependencies": {
     "mocha": "1.12.0"
