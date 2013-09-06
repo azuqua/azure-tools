@@ -1,11 +1,10 @@
 {
   "options":{
-    "root":"./",
-    "ignore-dirs": []
+    "root":"./development",
+    "workers": 2
   },
   "export": {
     "tables": [],
-    "ignore-columns": [],
     "containers": []
   },
   "import": {
@@ -18,5 +17,11 @@
     "table": {
       "field": false
     }
+  },
+  "ignore": {
+    "tables": [],
+    "columns":["_"],
+    "containers": [],
+    "directories": [".DS_Store", "node_modules"]
   }
 }

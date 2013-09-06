@@ -27,14 +27,6 @@ var package = require('./package.json');
 var config = {};
 var env = {};
 
-function folders(val) {
-  var _a = [];
-  _.each(val.split(","), function (value) {
-    _a.push(value.trim());
-  });
-  return _a;
-}
-
 /**
  * Validate that everything exists
  */
@@ -76,10 +68,18 @@ function createService(params) {
 }
 
 function runProcess (action, params) {
-  console.log("starting %s of %s", action, params);
+  var storageTypes = [];
+  if (params == "tables") {
+    storageTypes.push("tables");
+  } else if (params == "blobs") {
+    storageTypes.push("blobs");
+  } else {
+    storageTypes.push("tables");
+    storageTypes.push("blobs");
+  }
+  console.log("Entering %s of %j", action, storageTypes);
   var service = createService(params);
-  require("./lib/" + action + ".js")(service, config);
-  //actionModule.execute(config);
+  require("./lib/" + action + ".js")(service, config, storageTypes);
 }
 
 program
