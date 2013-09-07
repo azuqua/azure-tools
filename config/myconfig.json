@@ -1,15 +1,15 @@
 {
   "options":{
-    "root":"./development",
-    "workers": 2
+    "root":"./folder",
+    "workers": 5
   },
   "export": {
     "tables": [],
     "containers": []
   },
   "import": {
-    "overwrite-existing-records": true,
-    "drop-and-recreate": true,
+    "overwriteRecords": true,
+    "dropTables": true,
     "tables": [],
     "containers": []
   },
