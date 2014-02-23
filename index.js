@@ -22,6 +22,7 @@ var program = require("commander");
 var _ = require("underscore");
 var yaml = require("js-yaml");
 var azure = require("azure");
+var path = require("path");
 var package = require('./package.json');
 
 var config = {};
@@ -32,7 +33,7 @@ var env = {};
  */
 function validateOptions() {
   try {
-    config = require("./config/" + program.config + ".json");
+    config = require(path.resolve(program.config));
   } catch(ex) {
     console.log(ex);
     process.exit();
