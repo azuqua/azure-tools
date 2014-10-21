@@ -2,7 +2,7 @@
   "name": "azure-tools",
   "description": "node.js tools to work with Azure Storage",
   "author": "azuqua, inc.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/azuqua/azure-tools.git"
