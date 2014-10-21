@@ -67,7 +67,7 @@ function createService(params) {
   if(params == "all") {
     _service.tables = azure.createTableService(env.keys.account, env.keys.secret);
     _service.blobs = azure.createBlobService(env.keys.account, env.keys.secret);
-    _service.queues = azure.createQueueService(env.keys.account, env.keys.secret);
+    //_service.queues = azure.createQueueService(env.keys.account, env.keys.secret);
   }
   return _service;
 }

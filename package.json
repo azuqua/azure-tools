@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": {
-    "azure": "~0.7.15",
+    "azure": "0.7.19",
     "underscore": "1.5.1",
     "async": "0.2.9",
     "commander": "~2.0.0",
