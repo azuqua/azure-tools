@@ -4,24 +4,34 @@
     "workers": 2
   },
   "export": {
-    "tables": [],
-    "containers": []
+    "overwriteFiles": true,
+    "tables": ["table1", "table2"],
+    "PartitionKey": "",
+    "containers": ["container1", "container2"],
+    "blobs": [],
+    "queues": ["queue1", "queue2"]
   },
   "import": {
-    "overwriteRecords": true,
-    "dropTables": true,
-    "tables": [],
-    "containers": []
+    "overwriteRecords": false,
+    "tables": ["table2"],
+    "PartitionKey": "",
+    "containers": ["container2"],
+    "blobs": [],
+    "queues": ["queue2"]
   },
   "isJSON": {
-    "floflows": {
-      "steps": true
+    "table1": {
+      "attribute1": true
+    },
+    "table2": {
+      "attribute2": true
     }
   },
   "ignore": {
     "tables": [],
-    "columns":["_", "Timestamp"],
+    "columns":["_"],
     "containers": [],
-    "directories": [".DS_Store"]
+    "queues": [],
+    "directories": [".DS_Store", "Icon?"]
   }
 }

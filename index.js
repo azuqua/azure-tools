@@ -22,6 +22,7 @@ var program = require("commander");
 var _ = require("underscore");
 var yaml = require("js-yaml");
 var azure = require("azure");
+var path = require("path");
 var package = require('./package.json');
 
 var config = {};
@@ -32,7 +33,7 @@ var env = {};
  */
 function validateOptions() {
   try {
-    config = require("./config/" + program.config + ".json");
+    config = require(path.resolve(program.config));
   } catch(ex) {
     console.log(ex);
     process.exit();
@@ -60,9 +61,13 @@ function createService(params) {
   if(params == "blobs") {
     _service.blobs = azure.createBlobService(env.keys.account, env.keys.secret);
   }
+  if(params == "queues") {
+    _service.queues = azure.createQueueService(env.keys.account, env.keys.secret);
+  }
   if(params == "all") {
     _service.tables = azure.createTableService(env.keys.account, env.keys.secret);
     _service.blobs = azure.createBlobService(env.keys.account, env.keys.secret);
+    //_service.queues = azure.createQueueService(env.keys.account, env.keys.secret);
   }
   return _service;
 }
@@ -73,6 +78,8 @@ function runProcess (action, params) {
     storageTypes.push("tables");
   } else if (params == "blobs") {
     storageTypes.push("blobs");
+  } else if (params == "queues") {
+    storageTypes.push("queues");
   } else {
     storageTypes.push("tables");
     storageTypes.push("blobs");
@@ -88,13 +95,13 @@ program
   .option("-c, --config [config]", "Name of config file [myconfig]", "myconfig");
 
 program
-  .command('export [tables/blobs/all]')
+  .command('export [tables/blobs/queues/all]')
   .description('Export from Azure Storage')
   .action(function(options){
     if (!options) {
       console.log("There is nothing to do");
       program.help();
-    } else if (!_.contains(["tables", "blobs", "all"], options)) {
+    } else if (!_.contains(["tables", "blobs", "queues", "all"], options)) {
       console.log("Invalid object: %s", options);
       program.help();
     } else {
@@ -104,13 +111,13 @@ program
   });
 
 program
-  .command('import [tables/blobs/all]')
+  .command('import [tables/blobs/queues/all]')
   .description('Import into Azure Storage')
   .action(function(options){
     if (!options) {
       console.log("There is nothing to do");
       program.help();
-    } else if (!_.contains(["tables", "blobs", "all"], options)) {
+    } else if (!_.contains(["tables", "blobs", "queues", "all"], options)) {
       console.log("Invalid object: %s", options);
       program.help();
     } else {
